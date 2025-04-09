@@ -95,10 +95,8 @@ const Index = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-
-                {/*
-                <h3 className="text-xl font-semibold mb-2 text-wellness-charcoal">Sauna & Pára</h3>
-                <p className="text-wellness-earth">Detoxikujte a omlazujte v našich prémiových saunových zařízeních.</p>
+                <h3 className="text-xl font-semibold mb-2 text-wellness-charcoal">Kraniosakrální terapie</h3>
+                <p className="text-wellness-earth">Jemná ale učínná metoda, která podporuje tělo i duši.</p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-md border border-wellness-gold/10">
                 <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-wellness-yellow/20 flex items-center justify-center">
@@ -106,16 +104,14 @@ const Index = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-wellness-charcoal">Ošetření pleti</h3>
-                <p className="text-wellness-earth">Revitalizujte svou pleť pomocí našich speciálních ošetření obličeje.</p>
+                <h3 className="text-xl font-semibold mb-2 text-wellness-charcoal">Somatoemocionální uvolnění</h3>
+                <p className="text-wellness-earth">Jemná technika, která pomáhá uvolnit emoce uložené v těle.</p>
               </div>
             </div>
             <Button 
               className="mt-10 bg-wellness-gold hover:bg-wellness-yellow text-wellness-charcoal" 
               onClick={() => navigate('/business')}
             > 
-
-            */}
               Zobrazit všechny služby
             </Button>
           </div>
