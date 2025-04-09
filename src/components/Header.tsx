@@ -1,37 +1,56 @@
 
 import React from 'react';
 import { useToast } from '@/hooks/use-toast';
+import { useNavigate } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const { toast } = useToast();
+  const navigate = useNavigate();
   
   return (
-    <header className="py-6 border-b border-taskflow-yellow">
+    <header className="py-4 bg-wellness-soft-yellow/90 backdrop-blur-sm border-b border-wellness-gold/30 sticky top-0 z-50">
       <div className="container flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="2" 
-            strokeLinecap="round" 
-            strokeLinejoin="round" 
-            className="w-6 h-6 text-taskflow-orange"
-          >
-            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
-          </svg>
-          <h1 className="text-2xl font-bold text-taskflow-gray">TaskFlow</h1>
-        </div>
-        <button
-          onClick={() => toast({
-            title: "About TaskFlow",
-            description: "A simple task management app that works without a server. All your data is stored locally in your browser."
-          })}
-          className="text-sm text-taskflow-orange hover:text-taskflow-sienna transition-colors"
+        <div 
+          className="flex items-center gap-2 cursor-pointer" 
+          onClick={() => navigate('/')}
         >
-          About
-        </button>
+          <div className="w-10 h-10">
+            <svg 
+              viewBox="0 0 100 100" 
+              className="w-full h-full text-wellness-gold"
+              fill="currentColor"
+            >
+              <path d="M50,10 C60,25 80,25 90,40 C80,55 60,55 50,70 C40,55 20,55 10,40 C20,25 40,25 50,10 Z" />
+              <path d="M50,20 C57,30 70,30 78,40 C70,50 57,50 50,60 C43,50 30,50 22,40 C30,30 43,30 50,20 Z" fill="none" stroke="currentColor" strokeWidth="2" />
+              <circle cx="50" cy="40" r="5" />
+            </svg>
+          </div>
+          <h1 className="text-2xl font-bold text-wellness-charcoal">MM Masáže</h1>
+        </div>
+        
+        <div className="flex items-center gap-4">
+          <button
+            onClick={() => navigate('/business')}
+            className="text-wellness-charcoal hover:text-wellness-sienna transition-colors"
+          >
+            Služby
+          </button>
+          <button
+            onClick={() => navigate('/booking')}
+            className="text-wellness-charcoal hover:text-wellness-sienna transition-colors"
+          >
+            Rezervace
+          </button>
+          <button
+            onClick={() => toast({
+              title: "O našem centru",
+              description: "Wellness centrum s kompletním programem masáží, terapií a odměn pro stálé klienty."
+            })}
+            className="ml-4 text-sm text-wellness-sienna hover:text-wellness-orange transition-colors"
+          >
+            O nás
+          </button>
+        </div>
       </div>
     </header>
   );
