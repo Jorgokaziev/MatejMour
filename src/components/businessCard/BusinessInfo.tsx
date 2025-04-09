@@ -20,27 +20,27 @@ const BusinessInfo: React.FC = () => {
       // Create sample data for demo
       const sampleBusinessInfo: BusinessInfoType = {
         id: "1",
-        name: "Wellness Centrum Harmonie",
-        description: "Center for relaxation and renewal of energy. We provide various wellness services to help you unwind and rejuvenate.",
+        name: "M.M Masáže a terapie",
+        description: "Místo pro váš odpočinek",
         services: [
-          { id: "1", name: "Massage", price: 500, duration: 60 },
-          { id: "2", name: "Sauna", price: 300, duration: 90 },
-          { id: "3", name: "Facial Treatment", price: 600, duration: 45 },
-          { id: "4", name: "Body Scrub", price: 450, duration: 50 }
+          { id: "1", name: "Zdravotní masáž", price: 777/555, duration: 60/30 },
+          { id: "2", name: "Masáž břicha", price: 300, duration: 20 },
+          { id: "3", name: "Kraniosakrální terapie/biodynamika", price: 888/999, duration: 45-60 },
+          { id: "4", name: "Somatoemocionalní uvolnění", price: 777, duration: 40 }
         ],
         contact: {
-          phone: "+420 123 456 789",
-          email: "info@wellness-harmonie.cz",
-          address: "Main Street 123, Prague 1"
+          phone: "+420 777 697 545",
+          email: "ma.mour@seznam.cz",
+          address: "Třebeň 31, Třebeň"
         },
         workingHours: [
-          { day: "Monday", from: "9:00", to: "20:00" },
-          { day: "Tuesday", from: "9:00", to: "20:00" },
-          { day: "Wednesday", from: "9:00", to: "20:00" },
-          { day: "Thursday", from: "9:00", to: "20:00" },
-          { day: "Friday", from: "9:00", to: "21:00" },
-          { day: "Saturday", from: "10:00", to: "18:00" },
-          { day: "Sunday", from: "10:00", to: "15:00" }
+          { day: "Pondělí", from: "9:00", to: "20:00" },
+          { day: "Úterý", from: "9:00", to: "20:00" },
+          { day: "Středa", from: "9:00", to: "20:00" },
+          { day: "Čtvrtek", from: "9:00", to: "20:00" },
+          { day: "Pátek", from: "9:00", to: "21:00" },
+          { day: "Sobota", from: "10:00", to: "18:00" },
+          {/* day: "Sunday", from: "10:00", to: "15:00" */}
         ]
       };
       
