@@ -9,6 +9,7 @@ import {
   Notification, 
   AdminAction
 } from '../types/models';
+import { Task } from '../types/task';
 
 const STORAGE_KEYS = {
   CUSTOMERS: 'affiliate-customers',
@@ -19,7 +20,8 @@ const STORAGE_KEYS = {
   TRANSACTIONS: 'affiliate-transactions',
   NOTIFICATIONS: 'affiliate-notifications',
   ADMIN_ACTIONS: 'affiliate-admin-actions',
-  CURRENT_USER: 'affiliate-current-user'
+  CURRENT_USER: 'affiliate-current-user',
+  TASKS: 'affiliate-tasks' // Added tasks key
 };
 
 // Generic storage loader
@@ -97,3 +99,7 @@ export const saveAdminActions = (actions: AdminAction[]): void => saveToStorage(
 export const loadCurrentUser = (): Customer | null => loadSingleItem<Customer>(STORAGE_KEYS.CURRENT_USER);
 export const saveCurrentUser = (user: Customer | null): void => saveSingleItem(STORAGE_KEYS.CURRENT_USER, user);
 export const clearCurrentUser = (): void => localStorage.removeItem(STORAGE_KEYS.CURRENT_USER);
+
+// Task functions
+export const loadTasks = (): Task[] => loadFromStorage<Task>(STORAGE_KEYS.TASKS);
+export const saveTasks = (tasks: Task[]): void => saveToStorage(STORAGE_KEYS.TASKS, tasks);
