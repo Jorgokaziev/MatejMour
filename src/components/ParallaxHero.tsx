@@ -169,9 +169,11 @@ const ParallaxHero: React.FC = () => {
           className="w-full h-auto absolute bottom-0"
           style={{ width: '105%' }}
         />
+      
       </div>
       
       {/* Ground/soil layer */}
+      
       <div 
         className="parallax-layer absolute top-0 left-0 w-full h-full flex items-center justify-center" 
         style={{
@@ -187,6 +189,8 @@ const ParallaxHero: React.FC = () => {
           style={{ width: '110%' }}
         />
       </div>
+      
+     
       
       {/* Plants layer with natural movement */}
       <div 
@@ -298,6 +302,9 @@ const ParallaxHero: React.FC = () => {
             >
               Naše Služby
             </Button>
+
+              {/*
+
             <Button 
               variant="outline" 
               size="lg" 
@@ -311,6 +318,9 @@ const ParallaxHero: React.FC = () => {
             >
               Stát se členem
             </Button>
+
+            */}
+
           </div>
         </div>
       </div>
