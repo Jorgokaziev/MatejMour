@@ -60,19 +60,19 @@ const BusinessInfo: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto py-8">
       <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold text-gray-800">{businessInfo.name}</h1>
+        <h1 className="text-3xl font-bold text-taskflow-gray">{businessInfo.name}</h1>
         <p className="mt-2 text-gray-600">{businessInfo.description}</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-        <Card>
-          <CardHeader>
+        <Card className="border-taskflow-yellow">
+          <CardHeader className="bg-taskflow-orange/10">
             <CardTitle>Our Services</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
               {businessInfo.services.map((service: Service) => (
-                <div key={service.id} className="flex justify-between items-center border-b pb-2">
+                <div key={service.id} className="flex justify-between items-center border-b pb-2 border-taskflow-yellow/30">
                   <div>
                     <h3 className="font-medium">{service.name}</h3>
                     <p className="text-sm text-gray-500">{service.duration} minutes</p>
@@ -81,6 +81,7 @@ const BusinessInfo: React.FC = () => {
                     <p className="font-bold">{service.price} CZK</p>
                     <Button 
                       size="sm" 
+                      className="bg-taskflow-orange hover:bg-taskflow-sienna text-white"
                       onClick={() => navigate('/booking', { state: { serviceId: service.id } })}
                     >
                       Book Now
@@ -93,8 +94,8 @@ const BusinessInfo: React.FC = () => {
         </Card>
 
         <div className="space-y-6">
-          <Card>
-            <CardHeader>
+          <Card className="border-taskflow-yellow">
+            <CardHeader className="bg-taskflow-orange/10">
               <CardTitle>Contact Information</CardTitle>
             </CardHeader>
             <CardContent>
@@ -106,8 +107,8 @@ const BusinessInfo: React.FC = () => {
             </CardContent>
           </Card>
 
-          <Card>
-            <CardHeader>
+          <Card className="border-taskflow-yellow">
+            <CardHeader className="bg-taskflow-orange/10">
               <CardTitle>Working Hours</CardTitle>
             </CardHeader>
             <CardContent>
@@ -125,13 +126,20 @@ const BusinessInfo: React.FC = () => {
       </div>
 
       <div className="text-center mt-8">
-        <h2 className="text-2xl font-bold mb-4">Join Our Affiliate Program</h2>
+        <h2 className="text-2xl font-bold mb-4 text-taskflow-gray">Join Our Affiliate Program</h2>
         <p className="mb-4">Refer friends and earn free hours of wellness services!</p>
         <div className="space-x-4">
-          <Button onClick={() => navigate('/register')}>
+          <Button 
+            className="bg-taskflow-orange hover:bg-taskflow-sienna text-white"
+            onClick={() => navigate('/register')}
+          >
             Join Now
           </Button>
-          <Button variant="outline" onClick={() => navigate('/login')}>
+          <Button 
+            variant="outline" 
+            className="border-taskflow-yellow text-taskflow-gray hover:bg-taskflow-yellow/10"
+            onClick={() => navigate('/login')}
+          >
             Already a Member? Log In
           </Button>
         </div>

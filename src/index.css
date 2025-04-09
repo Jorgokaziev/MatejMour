@@ -5,7 +5,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 43 40% 98%;
     --foreground: 197 37% 24%;
 
     --card: 0 0% 100%;
@@ -14,35 +14,35 @@
     --popover: 0 0% 100%;
     --popover-foreground: 197 37% 24%;
 
-    --primary: 27 89% 67%;
+    --primary: 43 77% 66%;
     --primary-foreground: 197 37% 24%;
 
-    --secondary: 168 59% 40%;
+    --secondary: 168 61% 33%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 45 84% 67%;
+    --muted: 43 77% 90%;
     --muted-foreground: 197 37% 24%;
 
-    --accent: 23 96% 67%;
+    --accent: 25 82% 64%;
     --accent-foreground: 197 37% 24%;
 
-    --destructive: 11 83% 63%;
+    --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 45 84% 85%;
-    --input: 45 84% 85%;
-    --ring: 27 89% 67%;
+    --border: 43 77% 85%;
+    --input: 43 77% 85%;
+    --ring: 25 82% 64%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 45 84% 67%;
+    --sidebar-background: 43 77% 66%;
     --sidebar-foreground: 197 37% 24%;
     --sidebar-primary: 197 37% 24%;
-    --sidebar-primary-foreground: 45 84% 67%;
-    --sidebar-accent: 27 89% 67%;
+    --sidebar-primary-foreground: 43 77% 66%;
+    --sidebar-accent: 25 82% 64%;
     --sidebar-accent-foreground: 197 37% 24%;
-    --sidebar-border: 27 89% 67%;
-    --sidebar-ring: 168 59% 40%;
+    --sidebar-border: 25 82% 64%;
+    --sidebar-ring: 168 61% 33%;
   }
 
   .dark {
@@ -55,33 +55,33 @@
     --popover: 197 37% 24%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 27 89% 67%;
+    --primary: 43 77% 66%;
     --primary-foreground: 197 37% 24%;
 
-    --secondary: 168 59% 40%;
+    --secondary: 168 61% 33%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 197 37% 30%;
-    --muted-foreground: 45 84% 67%;
+    --muted-foreground: 43 77% 66%;
 
-    --accent: 23 96% 67%;
+    --accent: 25 82% 64%;
     --accent-foreground: 197 37% 24%;
 
-    --destructive: 11 83% 63%;
+    --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 197 37% 30%;
     --input: 197 37% 30%;
-    --ring: 45 84% 67%;
+    --ring: 43 77% 66%;
 
     --sidebar-background: 197 37% 24%;
-    --sidebar-foreground: 45 84% 67%;
-    --sidebar-primary: 27 89% 67%;
+    --sidebar-foreground: 43 77% 66%;
+    --sidebar-primary: 25 82% 64%;
     --sidebar-primary-foreground: 197 37% 24%;
     --sidebar-accent: 197 37% 30%;
-    --sidebar-accent-foreground: 45 84% 67%;
+    --sidebar-accent-foreground: 43 77% 66%;
     --sidebar-border: 197 37% 30%;
-    --sidebar-ring: 168 59% 40%;
+    --sidebar-ring: 168 61% 33%;
   }
 }
 
@@ -93,4 +93,23 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.parallax-container {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.parallax-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.2s ease-out;
+}
+
+.lotus-logo {
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
 }
