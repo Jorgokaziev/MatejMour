@@ -14,7 +14,6 @@ const ParallaxHero: React.FC = () => {
   // Track mouse movement
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      // Get mouse position relative to window size
       const x = e.clientX / windowSize.width;
       const y = e.clientY / windowSize.height;
       setMousePosition({ x, y });
@@ -43,9 +42,8 @@ const ParallaxHero: React.FC = () => {
   useEffect(() => {
     const handleOrientation = (e: DeviceOrientationEvent) => {
       if (e.beta !== null && e.gamma !== null) {
-        // Normalize values between 0 and 1
-        const beta = (e.beta + 90) / 180; // -90 to 90 -> 0 to 1
-        const gamma = (e.gamma + 90) / 180; // -90 to 90 -> 0 to 1
+        const beta = (e.beta + 90) / 180;
+        const gamma = (e.gamma + 90) / 180;
         setDeviceOrientation({ beta, gamma });
       }
     };
@@ -70,18 +68,14 @@ const ParallaxHero: React.FC = () => {
 
   // Calculate parallax movement for each layer
   const getLayerStyle = (depth: number, additionalStyles = {}) => {
-    const maxMovement = 50; // increased max movement for more dramatic effect
+    const maxMovement = 50;
     const movement = maxMovement * depth;
     
-    // Use device orientation on mobile, mouse position on desktop
     const isMobile = windowSize.width < 768;
     const x = isMobile ? deviceOrientation.gamma : mousePosition.x;
     const y = isMobile ? deviceOrientation.beta : mousePosition.y;
     
-    // Scroll effect - elements move at different speeds when scrolling
     const scrollEffect = scrollPosition * depth * 0.1;
-
-    // Dynamic hover effect that increases the movement intensity
     const hoverAmplifier = isHovering ? 1.3 : 1;
     
     return {
@@ -90,9 +84,9 @@ const ParallaxHero: React.FC = () => {
           ${(x * movement - movement/2) * hoverAmplifier}px, 
           ${(y * movement - movement/2) * hoverAmplifier - scrollEffect}px
         )
-        scale(${1 + depth * 0.05}) // Subtle zoom effect for depth
+        scale(${1 + depth * 0.05})
       `,
-      transition: 'transform 0.05s ease-out', // Smoother movement but still responsive
+      transition: 'transform 0.05s ease-out',
       ...additionalStyles
     };
   };
@@ -116,7 +110,7 @@ const ParallaxHero: React.FC = () => {
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
       style={{ 
-        perspective: '1000px', // 3D perspective for more immersion
+        perspective: '1000px',
       }}
     >
       {/* Sky/background layer - with subtle animation */}
@@ -128,27 +122,33 @@ const ParallaxHero: React.FC = () => {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           zIndex: 1,
-          filter: `brightness(${1 - scrollPosition * 0.001})`, // Darkens sky as you scroll
+          filter: `brightness(${1 - scrollPosition * 0.001})`,
         }}
       />
       
-      {/* Clouds layer */}
+      {/* Clouds layer - moved to left border */}
       <div 
-        className="parallax-layer absolute top-0 left-0 w-full h-full flex items-center justify-center" 
+        className="parallax-layer absolute top-0 left-0 w-full h-full" 
         style={{
           ...getLayerStyle(0.3),
           zIndex: 2,
           opacity: 0.7,
+          display: 'flex',
+          justifyContent: 'flex-start',
+          overflow: 'hidden',
         }}
       >
         <img 
           src="/lovable-uploads/7d60018e-e9bb-443e-aaeb-5e0e5d56f616.png" 
           alt="Mountains" 
-          className="w-full h-auto absolute bottom-0"
+          className="h-auto absolute bottom-0"
           style={{ 
             width: '110%', 
+            left: '0',
             filter: 'brightness(1.05)',
             animation: 'breathe 15s ease-in-out infinite',
+            objectFit: 'cover',
+            objectPosition: 'left bottom'
           }}
         />
       </div>
@@ -214,7 +214,7 @@ const ParallaxHero: React.FC = () => {
           ...getLayerStyle(1.2),
           zIndex: 6,
           background: 'radial-gradient(circle, rgba(255,255,255,0) 0%, rgba(255,233,196,0.15) 100%)',
-          opacity: mousePosition.y < 0.5 ? 0.7 : 0.3, // Light changes with mouse position
+          opacity: mousePosition.y < 0.5 ? 0.7 : 0.3,
         }}
       />
 
@@ -230,7 +230,6 @@ const ParallaxHero: React.FC = () => {
         }}
       >
         <div className="relative">
-          {/* Subtle glow effect around the meditator */}
           <div 
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full"
             style={{
@@ -323,7 +322,6 @@ const ParallaxHero: React.FC = () => {
         </div>
       </div>
 
-      {/* Global animations */}
       <style jsx>{`
         @keyframes float {
           0%, 100% { transform: translateY(0px); }
