@@ -1,0 +1,143 @@
+
+import React, { useEffect, useState } from 'react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { BusinessInfo as BusinessInfoType, Service, WorkingHour } from '@/types/models';
+import { loadBusinessInfo } from '@/utils/storage';
+import { useNavigate } from 'react-router-dom';
+
+const BusinessInfo: React.FC = () => {
+  const [businessInfo, setBusinessInfo] = useState<BusinessInfoType | null>(null);
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Load business info or create a default one for demo purposes
+    const info = loadBusinessInfo();
+    if (info) {
+      setBusinessInfo(info);
+    } else {
+      // Create sample data for demo
+      const sampleBusinessInfo: BusinessInfoType = {
+        id: "1",
+        name: "Wellness Centrum Harmonie",
+        description: "Center for relaxation and renewal of energy. We provide various wellness services to help you unwind and rejuvenate.",
+        services: [
+          { id: "1", name: "Massage", price: 500, duration: 60 },
+          { id: "2", name: "Sauna", price: 300, duration: 90 },
+          { id: "3", name: "Facial Treatment", price: 600, duration: 45 },
+          { id: "4", name: "Body Scrub", price: 450, duration: 50 }
+        ],
+        contact: {
+          phone: "+420 123 456 789",
+          email: "info@wellness-harmonie.cz",
+          address: "Main Street 123, Prague 1"
+        },
+        workingHours: [
+          { day: "Monday", from: "9:00", to: "20:00" },
+          { day: "Tuesday", from: "9:00", to: "20:00" },
+          { day: "Wednesday", from: "9:00", to: "20:00" },
+          { day: "Thursday", from: "9:00", to: "20:00" },
+          { day: "Friday", from: "9:00", to: "21:00" },
+          { day: "Saturday", from: "10:00", to: "18:00" },
+          { day: "Sunday", from: "10:00", to: "15:00" }
+        ]
+      };
+      
+      setBusinessInfo(sampleBusinessInfo);
+    }
+    setLoading(false);
+  }, []);
+
+  if (loading) {
+    return <div className="flex justify-center items-center h-64">Loading business information...</div>;
+  }
+
+  if (!businessInfo) {
+    return <div className="text-center text-red-500">Business information not available</div>;
+  }
+
+  return (
+    <div className="max-w-4xl mx-auto py-8">
+      <div className="text-center mb-8">
+        <h1 className="text-3xl font-bold text-gray-800">{businessInfo.name}</h1>
+        <p className="mt-2 text-gray-600">{businessInfo.description}</p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <Card>
+          <CardHeader>
+            <CardTitle>Our Services</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              {businessInfo.services.map((service: Service) => (
+                <div key={service.id} className="flex justify-between items-center border-b pb-2">
+                  <div>
+                    <h3 className="font-medium">{service.name}</h3>
+                    <p className="text-sm text-gray-500">{service.duration} minutes</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="font-bold">{service.price} CZK</p>
+                    <Button 
+                      size="sm" 
+                      onClick={() => navigate('/booking', { state: { serviceId: service.id } })}
+                    >
+                      Book Now
+                    </Button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+
+        <div className="space-y-6">
+          <Card>
+            <CardHeader>
+              <CardTitle>Contact Information</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-2">
+                <p><strong>Address:</strong> {businessInfo.contact.address}</p>
+                <p><strong>Phone:</strong> {businessInfo.contact.phone}</p>
+                <p><strong>Email:</strong> {businessInfo.contact.email}</p>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Working Hours</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-1">
+                {businessInfo.workingHours.map((hours: WorkingHour, index) => (
+                  <div key={index} className="grid grid-cols-2">
+                    <span className="font-medium">{hours.day}</span>
+                    <span>{hours.from} - {hours.to}</span>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+
+      <div className="text-center mt-8">
+        <h2 className="text-2xl font-bold mb-4">Join Our Affiliate Program</h2>
+        <p className="mb-4">Refer friends and earn free hours of wellness services!</p>
+        <div className="space-x-4">
+          <Button onClick={() => navigate('/register')}>
+            Join Now
+          </Button>
+          <Button variant="outline" onClick={() => navigate('/login')}>
+            Already a Member? Log In
+          </Button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default BusinessInfo;
