@@ -15,26 +15,26 @@ interface TaskItemProps {
 
 const TaskItem: React.FC<TaskItemProps> = ({ task, onToggleComplete, onEdit, onDelete }) => {
   const priorityColors = {
-    low: 'bg-green-100 text-green-800 hover:bg-green-200',
-    medium: 'bg-blue-100 text-blue-800 hover:bg-blue-200',
-    high: 'bg-red-100 text-red-800 hover:bg-red-200',
+    low: 'bg-taskflow-teal/20 text-taskflow-teal hover:bg-taskflow-teal/30',
+    medium: 'bg-taskflow-yellow/20 text-taskflow-gray hover:bg-taskflow-yellow/30',
+    high: 'bg-taskflow-sienna/20 text-taskflow-sienna hover:bg-taskflow-sienna/30',
   };
 
   return (
     <div className={`p-4 mb-3 border rounded-lg shadow-sm transition-all animate-fade-in ${
-      task.completed ? 'bg-gray-50 opacity-80' : 'bg-white'
+      task.completed ? 'bg-gray-50 opacity-80 border-taskflow-teal/30' : 'bg-white border-taskflow-yellow/30'
     }`}>
       <div className="flex items-start justify-between">
         <div className="flex items-start gap-3 flex-1">
           <Checkbox 
             checked={task.completed} 
             onCheckedChange={() => onToggleComplete(task.id)}
-            className="mt-1.5"
+            className="mt-1.5 border-taskflow-orange/70 data-[state=checked]:bg-taskflow-orange data-[state=checked]:border-taskflow-orange"
           />
           <div className="flex-1">
             <div className="flex items-center gap-2 mb-1">
               <h3 className={`font-medium text-lg ${
-                task.completed ? 'line-through text-gray-500' : 'text-taskflow-dark'
+                task.completed ? 'line-through text-gray-500' : 'text-taskflow-gray'
               }`}>
                 {task.title}
               </h3>
@@ -60,7 +60,7 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, onToggleComplete, onEdit, onD
             variant="outline" 
             size="sm" 
             onClick={() => onEdit(task)}
-            className="h-8 w-8 p-0 border-gray-200"
+            className="h-8 w-8 p-0 border-taskflow-yellow/50 hover:bg-taskflow-yellow/10"
           >
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
@@ -72,7 +72,7 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, onToggleComplete, onEdit, onD
               strokeWidth="2" 
               strokeLinecap="round" 
               strokeLinejoin="round" 
-              className="text-gray-500"
+              className="text-taskflow-orange"
             >
               <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
               <path d="m15 5 4 4"/>
@@ -83,7 +83,7 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, onToggleComplete, onEdit, onD
             variant="outline" 
             size="sm" 
             onClick={() => onDelete(task.id)}
-            className="h-8 w-8 p-0 border-gray-200"
+            className="h-8 w-8 p-0 border-taskflow-yellow/50 hover:bg-taskflow-yellow/10"
           >
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
@@ -95,7 +95,7 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, onToggleComplete, onEdit, onD
               strokeWidth="2" 
               strokeLinecap="round" 
               strokeLinejoin="round" 
-              className="text-red-500"
+              className="text-taskflow-sienna"
             >
               <path d="M3 6h18"/>
               <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>

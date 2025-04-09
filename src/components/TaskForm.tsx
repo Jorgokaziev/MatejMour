@@ -57,8 +57,8 @@ const TaskForm: React.FC<TaskFormProps> = ({ onAddTask, editingTask, onCancelEdi
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 p-6 bg-white rounded-lg shadow-sm border">
-      <h2 className="text-xl font-semibold text-taskflow-dark">
+    <form onSubmit={handleSubmit} className="space-y-4 p-6 bg-white rounded-lg shadow-sm border border-taskflow-yellow/50">
+      <h2 className="text-xl font-semibold text-taskflow-gray">
         {editingTask ? 'Edit Task' : 'Add New Task'}
       </h2>
       <div className="space-y-2">
@@ -68,7 +68,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ onAddTask, editingTask, onCancelEdi
           placeholder="Task title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="w-full"
+          className="w-full border-taskflow-yellow/70 focus-visible:ring-taskflow-orange"
         />
       </div>
       
@@ -79,7 +79,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ onAddTask, editingTask, onCancelEdi
           placeholder="Task description (optional)"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          className="w-full"
+          className="w-full border-taskflow-yellow/70 focus-visible:ring-taskflow-orange"
           rows={3}
         />
       </div>
@@ -92,22 +92,22 @@ const TaskForm: React.FC<TaskFormProps> = ({ onAddTask, editingTask, onCancelEdi
           className="flex space-x-4"
         >
           <div className="flex items-center space-x-2">
-            <RadioGroupItem value="low" id="low" />
-            <Label htmlFor="low" className="text-green-600">Low</Label>
+            <RadioGroupItem value="low" id="low" className="text-taskflow-teal border-taskflow-teal" />
+            <Label htmlFor="low" className="text-taskflow-teal">Low</Label>
           </div>
           <div className="flex items-center space-x-2">
-            <RadioGroupItem value="medium" id="medium" />
-            <Label htmlFor="medium" className="text-blue-600">Medium</Label>
+            <RadioGroupItem value="medium" id="medium" className="text-taskflow-yellow border-taskflow-yellow" />
+            <Label htmlFor="medium" className="text-taskflow-yellow">Medium</Label>
           </div>
           <div className="flex items-center space-x-2">
-            <RadioGroupItem value="high" id="high" />
-            <Label htmlFor="high" className="text-red-600">High</Label>
+            <RadioGroupItem value="high" id="high" className="text-taskflow-sienna border-taskflow-sienna" />
+            <Label htmlFor="high" className="text-taskflow-sienna">High</Label>
           </div>
         </RadioGroup>
       </div>
       
       <div className="flex gap-2 pt-2">
-        <Button type="submit" className="bg-taskflow-teal hover:bg-taskflow-blue text-white">
+        <Button type="submit" className="bg-taskflow-orange hover:bg-taskflow-sienna text-white">
           {editingTask ? 'Update Task' : 'Add Task'}
         </Button>
         {editingTask && onCancelEdit && (
@@ -115,6 +115,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ onAddTask, editingTask, onCancelEdi
             type="button" 
             variant="outline" 
             onClick={onCancelEdit}
+            className="border-taskflow-yellow text-taskflow-gray hover:bg-taskflow-yellow/10"
           >
             Cancel
           </Button>
