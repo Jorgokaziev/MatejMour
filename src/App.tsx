@@ -12,6 +12,7 @@ import NotFound from "./pages/NotFound";
 import CustomerDashboard from "./pages/CustomerDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import BusinessCardPage from "./pages/BusinessCardPage";
+import BookingPage from "./pages/BookingPage";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/business" element={<BusinessCardPage />} />
+            <Route path="/booking" element={<BookingPage />} />
             <Route path="/ref/:referrerId" element={<BusinessCardPage />} />
             
             <Route path="/dashboard" element={

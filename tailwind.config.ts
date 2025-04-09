@@ -63,15 +63,17 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				taskflow: {
-					'green': '#2A9D8F', // Persian Green
-					'teal': '#2A9D8F', // Persian Green
-					'light': '#F0FDFA',
-					'gray': '#264653', // Charcoal
-					'dark': '#264653', // Charcoal
-					'orange': '#F4A261', // Sandy Brown
-					'yellow': '#E9C46A', // Saffron
-					'sienna': '#E76F51' // Burnt Sienna
+				wellness: {
+					'charcoal': '#264653', 
+					'green': '#2A9D8F',
+					'yellow': '#E9C46A',
+					'orange': '#F4A261',
+					'sienna': '#E76F51',
+					'gold': '#D4AF37',
+					'soft-yellow': '#F2E9D8',
+					'soft-brown': '#8B5A2B',
+					'earth': '#7D5A40',
+					'sky': '#A0C8D7'
 				}
 			},
 			borderRadius: {
@@ -113,13 +115,25 @@ export default {
 					'100%': {
 						opacity: '1'
 					}
+				},
+				'float': {
+					'0%': {
+						transform: 'translateY(0px) translateX(0px)'
+					},
+					'50%': {
+						transform: 'translateY(-10px) translateX(5px)'
+					},
+					'100%': {
+						transform: 'translateY(0px) translateX(0px)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'slide-in': 'slide-in 0.3s ease-out',
-				'fade-in': 'fade-in 0.3s ease-in'
+				'fade-in': 'fade-in 0.3s ease-in',
+				'float': 'float 6s ease-in-out infinite'
 			}
 		}
 	},
