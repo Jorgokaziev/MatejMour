@@ -119,7 +119,7 @@ const ParallaxHero: React.FC = () => {
         className="parallax-layer absolute top-0 left-0 w-full h-full"
         style={{
           ...getLayerStyle(0.2),
-          backgroundImage: `url('/lovable-uploads/48b6d244-aea5-44b4-b4d3-5b9fea472545.png')`,
+          backgroundImage: `url('/lovable-uploads/pozadi.png')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           zIndex: 1,
@@ -140,7 +140,7 @@ const ParallaxHero: React.FC = () => {
         }}
       >
         <img 
-          src="/lovable-uploads/7d60018e-e9bb-443e-aaeb-5e0e5d56f616.png" 
+          src="/lovable-uploads/mraky.png" 
           alt="Mountains" 
           className="h-auto absolute bottom-0"
           style={{ 
@@ -252,23 +252,15 @@ const ParallaxHero: React.FC = () => {
         </div>
       </div>
       
-      {/* Logo layer - fixed position with subtle hover animation */}
+      {/* Logo layer - centered in background with subtle hover animation */}
       <div 
-        className="parallax-layer absolute top-0 left-0 w-full h-full flex flex-col items-end justify-start p-8" 
+        className="parallax-layer absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center" 
         style={{
           ...getLayerStyle(0.05),
-          zIndex: 8
+          zIndex: 3 // Moved to background by reducing z-index
         }}
       >
-        <img 
-          src="/lovable-uploads/c2954054-0d67-420a-a460-358eb322274e.png" 
-          alt="MM Masáže a Terapie Logo" 
-          className="w-64 h-auto lotus-logo"
-          style={{
-            animation: 'logoFloat 3s ease-in-out infinite',
-            filter: 'drop-shadow(0 0 10px rgba(255, 215, 0, 0.3))',
-          }}
-        />
+        
       </div>
       
       {/* Content overlay - interactive and responsive */}
