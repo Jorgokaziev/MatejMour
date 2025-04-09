@@ -32,6 +32,9 @@ const Index = () => {
                 >
                   Prohlédnout služby
                 </Button>
+                
+                {/*
+                
                 <Button 
                   variant="outline" 
                   size="lg" 
@@ -39,7 +42,7 @@ const Index = () => {
                   onClick={() => navigate('/register')}
                 >
                   Zapojit se do programu
-                </Button>
+                </Button>                
               </div>
             </div>
             <div className="bg-white p-8 rounded-xl shadow-lg border border-wellness-gold/20">
@@ -71,6 +74,8 @@ const Index = () => {
           </div>
         </section>
 
+        */}
+
         <section className="py-16 bg-wellness-charcoal/5">
           <div className="container text-center">
             <h2 className="text-3xl font-bold mb-12 text-wellness-charcoal">Naše prémiové služby</h2>
@@ -90,6 +95,8 @@ const Index = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
+
+                {/*
                 <h3 className="text-xl font-semibold mb-2 text-wellness-charcoal">Sauna & Pára</h3>
                 <p className="text-wellness-earth">Detoxikujte a omlazujte v našich prémiových saunových zařízeních.</p>
               </div>
@@ -106,7 +113,9 @@ const Index = () => {
             <Button 
               className="mt-10 bg-wellness-gold hover:bg-wellness-yellow text-wellness-charcoal" 
               onClick={() => navigate('/business')}
-            >
+            > 
+
+            */}
               Zobrazit všechny služby
             </Button>
           </div>
@@ -118,22 +127,26 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
               <h3 className="text-xl font-semibold mb-4 text-wellness-gold">MM Masáže a Terapie</h3>
+              {/*
+              
               <p className="text-gray-300">
                 Připojte se k našemu věrnostnímu programu a získejte odměny za sdílení wellness služeb s přáteli a rodinou.
               </p>
+
+              */}
             </div>
             <div>
               <h3 className="text-xl font-semibold mb-4 text-wellness-gold">Kontakt</h3>
-              <p className="text-gray-300">Hlavní 123, Praha 1</p>
-              <p className="text-gray-300">+420 123 456 789</p>
-              <p className="text-gray-300">info@mm-masaze.cz</p>
+              <p className="text-gray-300">Třebeň 31, Třebeň</p>
+              <p className="text-gray-300">+420 777 697 545</p>
+              <p className="text-gray-300">ma.mour@seznam.cz</p>
             </div>
             <div>
               <h3 className="text-xl font-semibold mb-4 text-wellness-gold">Rychlé odkazy</h3>
               <ul className="space-y-2 text-gray-300">
                 <li><a href="/business" className="hover:text-wellness-gold">Služby</a></li>
                 <li><a href="/register" className="hover:text-wellness-gold">Věrnostní program</a></li>
-                <li><a href="/login" className="hover:text-wellness-gold">Přihlášení člena</a></li>
+                <li><a href="/login" className="hover:text-wellness-gold">Přihlášení člena</a></li>            
               </ul>
             </div>
           </div>
