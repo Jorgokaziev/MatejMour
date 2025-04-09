@@ -35,7 +35,7 @@ const ParallaxHero: React.FC = () => {
     <div className="parallax-container">
       {/* Sky/background layer - moves least */}
       <div 
-        className="parallax-layer"
+        className="parallax-layer flex items-center justify-center"
         style={{
           ...getLayerStyle(0.2),
           backgroundImage: `url('/lovable-uploads/48b6d244-aea5-44b4-b4d3-5b9fea472545.png')`,
@@ -47,7 +47,7 @@ const ParallaxHero: React.FC = () => {
       
       {/* Mountains layer */}
       <div 
-        className="parallax-layer" 
+        className="parallax-layer flex items-center justify-center" 
         style={{
           ...getLayerStyle(0.4),
           zIndex: 2
@@ -63,7 +63,7 @@ const ParallaxHero: React.FC = () => {
       
       {/* Ground/soil layer */}
       <div 
-        className="parallax-layer" 
+        className="parallax-layer flex items-center justify-center" 
         style={{
           ...getLayerStyle(0.6),
           zIndex: 3
@@ -78,7 +78,7 @@ const ParallaxHero: React.FC = () => {
       
       {/* Plants layer */}
       <div 
-        className="parallax-layer" 
+        className="parallax-layer flex items-center justify-center" 
         style={{
           ...getLayerStyle(0.8),
           zIndex: 4
@@ -87,13 +87,13 @@ const ParallaxHero: React.FC = () => {
         <img 
           src="/lovable-uploads/4be30fba-6d9d-4442-9499-fd96e4dcacb3.png" 
           alt="Plants" 
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain"
         />
       </div>
       
       {/* Meditation person (main subject) - moves most */}
       <div 
-        className="parallax-layer" 
+        className="parallax-layer flex items-center justify-center" 
         style={{
           ...getLayerStyle(0.1), // Subject moves very little
           zIndex: 5
@@ -102,7 +102,7 @@ const ParallaxHero: React.FC = () => {
         <img 
           src="/lovable-uploads/1eff2d38-ec86-4cf7-a985-8c52d1ec795d.png" 
           alt="Meditation" 
-          className="absolute transform -translate-x-1/2 left-1/2 bottom-20 h-[60vh] object-contain"
+          className="h-[60vh] object-contain"
         />
       </div>
       
