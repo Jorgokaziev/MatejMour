@@ -284,7 +284,7 @@ const ParallaxHero: React.FC = () => {
               textShadow: '0 0 15px rgba(255, 215, 0, 0.4)',
             }}
           >
-            Wellness & Masáže
+            Masáže & Terapie
           </h1>
           <p className="text-xl text-wellness-soft-yellow drop-shadow-md mb-8">
             Najděte vnitřní harmonii a obnovte svou energii prostřednictvím profesionálních masáží a terapií.
