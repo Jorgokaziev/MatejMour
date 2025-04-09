@@ -35,12 +35,18 @@ const Header: React.FC = () => {
           >
             Služby
           </button>
+
+          {/*
+          
           <button
             onClick={() => navigate('/booking')}
             className="text-wellness-charcoal hover:text-wellness-sienna transition-colors"
           >
             Rezervace
           </button>
+
+*/}
+          
           <button
             onClick={() => toast({
               title: "O našem centru",
