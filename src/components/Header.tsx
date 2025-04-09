@@ -21,12 +21,12 @@ const Header: React.FC = () => {
           >
             <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
           </svg>
-          <h1 className="text-2xl font-bold text-taskflow-gray">TaskFlow</h1>
+          <h1 className="text-2xl font-bold text-taskflow-gray">Wellness Center</h1>
         </div>
         <button
           onClick={() => toast({
-            title: "About TaskFlow",
-            description: "A simple task management app that works without a server. All your data is stored locally in your browser."
+            title: "About Our Platform",
+            description: "A complete wellness management system with affiliate program, booking, and rewards tracking."
           })}
           className="text-sm text-taskflow-orange hover:text-taskflow-sienna transition-colors"
         >

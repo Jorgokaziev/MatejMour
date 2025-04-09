@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -63,14 +64,14 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				taskflow: {
-					'blue': '#3B82F6',
-					'teal': '#2A9D8F',
+					'green': '#2A9D8F', // Persian Green
+					'teal': '#2A9D8F', // Persian Green
 					'light': '#F0FDFA',
-					'gray': '#264653',
-					'dark': '#264653',
-					'orange': '#F4A261',
-					'yellow': '#E9C46A',
-					'sienna': '#E76F51'
+					'gray': '#264653', // Charcoal
+					'dark': '#264653', // Charcoal
+					'orange': '#F4A261', // Sandy Brown
+					'yellow': '#E9C46A', // Saffron
+					'sienna': '#E76F51' // Burnt Sienna
 				}
 			},
 			borderRadius: {

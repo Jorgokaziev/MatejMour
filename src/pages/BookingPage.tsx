@@ -1,11 +1,10 @@
 
 import React from 'react';
-import { useParams } from 'react-router-dom';
-import BusinessInfo from '@/components/businessCard/BusinessInfo';
+import Booking from '@/components/businessCard/Booking';
+import { useToast } from '@/hooks/use-toast';
 
-const BusinessCardPage = () => {
-  // Get referrer ID from URL if available
-  const { referrerId } = useParams();
+const BookingPage: React.FC = () => {
+  const { toast } = useToast();
 
   return (
     <div className="min-h-screen bg-background">
@@ -22,23 +21,27 @@ const BusinessCardPage = () => {
               strokeLinejoin="round" 
               className="w-6 h-6 text-taskflow-orange"
             >
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
             </svg>
             <h1 className="text-2xl font-bold text-taskflow-gray">Wellness Centrum</h1>
           </div>
-          {referrerId && (
-            <div className="bg-taskflow-orange/20 text-taskflow-sienna px-4 py-2 rounded-md">
-              You've been referred by a member!
-            </div>
-          )}
+          <button
+            onClick={() => toast({
+              title: "About Our Booking System",
+              description: "Book your wellness services easily and track your rewards."
+            })}
+            className="text-sm text-taskflow-orange hover:text-taskflow-sienna transition-colors"
+          >
+            Help
+          </button>
         </div>
       </header>
 
       <main className="container py-8">
-        <BusinessInfo />
+        <Booking />
       </main>
 
-      <footer className="py-6 mt-12 border-t border-taskflow-yellow/30">
+      <footer className="py-6 mt-12 border-t">
         <div className="container text-center text-sm text-taskflow-gray">
           <p>Wellness Affiliate Program</p>
           <p className="mt-1">Visit us at Main Street 123, Prague 1</p>
@@ -48,4 +51,4 @@ const BusinessCardPage = () => {
   );
 };
 
-export default BusinessCardPage;
+export default BookingPage;
