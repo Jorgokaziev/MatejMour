@@ -1,55 +1,44 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Index from './pages/Index';
+import NotFound from './pages/NotFound';
+import './App.css';
 
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { AuthProvider } from "./context/AuthContext";
-import Index from "./pages/Index";
-import Login from "./components/auth/Login";
-import Register from "./components/auth/Register";
-import NotFound from "./pages/NotFound";
-import CustomerDashboard from "./pages/CustomerDashboard";
-import AdminDashboard from "./pages/AdminDashboard";
-import BusinessCardPage from "./pages/BusinessCardPage";
-import BookingPage from "./pages/BookingPage";
-import ProtectedRoute from "./components/auth/ProtectedRoute";
+// Implementace jednoduchého footer komponenty přímo zde
+const Footer: React.FC = () => (
+  <footer className="bg-gray-800 text-white py-8">
+    <div className="container mx-auto px-4">
+      <div className="text-center">
+        <p className="text-sm text-gray-400">
+          MM Masáže a Terapie - Přej vám krásný den
+        </p>
+        <p className="text-sm text-gray-400 mt-1">
+          Třeboň 11, Třeboň
+        </p>
+        <p className="mt-4 text-sm">
+          &copy; {new Date().getFullYear()} Matej Mour. Všechna práva vyhrazena.
+        </p>
+      </div>
+    </div>
+  </footer>
+);
 
-const queryClient = new QueryClient();
-
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <AuthProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
+const App: React.FC = () => {
+  return (
+    <Router>
+      <div className="flex flex-col min-h-screen">
+        <Header />
+        <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/business" element={<BusinessCardPage />} />
-            <Route path="/booking" element={<BookingPage />} />
-            <Route path="/ref/:referrerId" element={<BusinessCardPage />} />
-            
-            <Route path="/dashboard" element={
-              <ProtectedRoute>
-                <CustomerDashboard />
-              </ProtectedRoute>
-            } />
-            
-            <Route path="/admin" element={
-              <ProtectedRoute requiredRole="admin">
-                <AdminDashboard />
-              </ProtectedRoute>
-            } />
-            
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </BrowserRouter>
-      </AuthProvider>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+        </main>
+        <Footer />
+      </div>
+    </Router>
+  );
+};
 
 export default App;
